@@ -6,6 +6,10 @@ export const signup = async (req, res) => {
 	try {
 		const { fullName, username, password, confirmPassword, gender } = req.body;
 
+		if (!fullName || !username || !password || !confirmPassword || !gender) {
+			return res.status(400).json({ error: "All fields are required" });
+		}
+		
 		if (password !== confirmPassword) {
 			return res.status(400).json({ error: "Passwords don't match" });
 		}
@@ -21,6 +25,7 @@ export const signup = async (req, res) => {
 		const hashedPassword = await bcrypt.hash(password, salt);
 
 		// https://avatar-placeholder.iran.liara.run/
+		//using username to get a unique pic, otherwise will change everytime you refresh
 
 		const boyProfilePic = `https://avatar.iran.liara.run/public/boy?username=${username}`;
 		const girlProfilePic = `https://avatar.iran.liara.run/public/girl?username=${username}`;
