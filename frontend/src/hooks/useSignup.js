@@ -31,7 +31,7 @@ const useSignup = () => {
 		}
 	};
 
-	return { loading, signup };
+	return { loading, signup }; //export the functions
 };
 export default useSignup;
 
@@ -46,8 +46,8 @@ function handleInputErrors({ fullName, username, password, confirmPassword, gend
 		return false;
 	}
 
-	if (password.length < 6) {
-		toast.error("Password must be at least 6 characters");
+	if (password.length < 8) {
+		toast.error("Password must be at least 8 characters");
 		return false;
 	}
 

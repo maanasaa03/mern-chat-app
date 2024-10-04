@@ -18,5 +18,5 @@ function App() {
 		</div>
 	);
 }
-
+//if user is authenticated, navigate to home page after login or signup
 export default App;

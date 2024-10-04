@@ -4,6 +4,7 @@ import { useState } from "react";
 import useSignup from "../../hooks/useSignup";
 
 const SignUp = () => {
+	//initially all values are empty. as the user types values in the signup form,we can set it to those values using the setInputs function
 	const [inputs, setInputs] = useState({
 		fullName: "",
 		username: "",
@@ -92,9 +93,9 @@ const SignUp = () => {
 					>
 						Already have an account?
 					</Link>
-
+					
 					<div>
-						<button className='btn btn-block btn-sm mt-2 border border-slate-700' disabled={loading}>
+						<button className='btn btn-block btn-sm mt-2 border border-slate-700' disabled={loading}> 
 							{loading ? <span className='loading loading-spinner'></span> : "Sign Up"}
 						</button>
 					</div>
